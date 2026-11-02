@@ -12,9 +12,9 @@ import sys
 try:
     PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
     TOOLS_DIR = os.path.join(PROJECT_ROOT, 'tool')
-    TRUFFLEHOG_EXE = os.path.join(TOOLS_DIR, 'gitleaks.exe')
+    GITLEAKS_EXE = os.path.join(TOOLS_DIR, 'gitleaks.exe')
 
-    if not os.path.exists(TRUFFLEHOG_EXE):
+    if not os.path.exists(GITLEAKS_EXE):
         raise FileNotFoundError
 except FileNotFoundError:
     # If gitleaks binary is not found, exit the program immediately
@@ -42,7 +42,7 @@ def run_gitleaks_scanner(filepath: str) -> list[dict]:
     #   - --exit-code 0: never fail even if secrets are found
     # ------------------------------------------------------------
     command = [
-        "gitleaks", "detect",
+        GITLEAKS_EXE, "detect",
         "--source", filepath,
         "--no-git",
         "--report-format", "json",
