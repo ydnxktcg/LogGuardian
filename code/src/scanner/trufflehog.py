@@ -21,7 +21,7 @@ def run_trufflehog_scanner(filepath: str) -> list[dict]:
     if not os.path.exists(filepath):
         return []
 
-    command = ["trufflehog", "filesystem", filepath, "--json", "--no-update"]
+    command = [TRUFFLEHOG_EXE, "filesystem", filepath, "--json", "--no-update"]
     parsed_results = []
 
     try:
