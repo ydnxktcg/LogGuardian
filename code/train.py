@@ -226,7 +226,7 @@ def main(backbone_model, seed):
     model_dir = 'model'
     os.makedirs(model_dir, exist_ok=True)
 
-    final_model_path = os.path.join(model_dir, f"seed_{seed}.pkl")
+    final_model_path = MODEL_SAVE_PATH
     joblib.dump((models, meta_model), final_model_path)
 
     print(f"\n💾 Model saved to: {final_model_path}")
